@@ -5,7 +5,7 @@ This class will be used for the AirBnB clone console
 """
 
 import models
-from datetime import datetime
+from datetime import date, datetime
 from uuid import uuid4
 
 
@@ -22,14 +22,12 @@ class BaseModel:
         if len(kwargs) > 0:
             for key, value in kwargs.items():
                 if key != "__class__":
-                    if key == 'created_at':
-                        self.created_at = datetime.strptime(value,
-                                                    '%Y-%m-%dT%H:%M:%S.%f')
-                    elif key == 'updated_at':
-                        self.updated_at = datetime.strptime(value,
-                                                    '%Y-%m-%dT%H:%M:%S.%f')
-            else:
-                    setattr(self, key, value)
+                    if key == 'created_at' or key == 'updated_at':
+                        value = datetime.datetime.strptime(
+                            value, "%Y-%m-%dT%H:%M:%S.%f")
+                        setattr(self, key, value)
+                    else:
+                        setattr(self, key, value)
         else:
             models.storage.new(self)
             self.id = str(uuid4())
