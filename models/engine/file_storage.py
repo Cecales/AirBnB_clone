@@ -10,9 +10,9 @@ from models.base_model import BaseModel
 class FileStorage:
     """Class Filestorage"""
     def __init__(self):
-    """Innitializaes FilesStorage"""
-    self.__file_path = "file.json"
-    self.__objects = {}
+        """Innitializaes FilesStorage"""
+        self.__file_path = "file.json"
+        self.__objects = {}
 
     def all(self):
         """Returns a dictionary of all objects"""
