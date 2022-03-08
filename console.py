@@ -174,6 +174,6 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_update(self, class_name + ' ' + split3[0] +
                                       ' ' + split3[1] + ' ' + split3[2])
 
-                    
+           
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

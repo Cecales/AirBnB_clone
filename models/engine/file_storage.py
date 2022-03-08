@@ -3,24 +3,28 @@
 
 import json
 import os.path
-from os import read
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class FileStorage:
     """Class Filestorage"""
-    def __init__(self):
-        """Innitializaes FilesStorage"""
-        self.__file_path = "file.json"
-        self.__objects = {}
+
+    __file_path = "file.json"
+    __objects = {}
 
     def all(self):
         """Returns a dictionary of all objects"""
         return self.__objects
 
     def new(self, obj):
-        """Sets in __objects the obj"""
-        key = obj.__class__.__name__ + "." + obj.id
+        """Sets in __objects the obj .id"""
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.__objects[key] = obj
 
     def save(self):
@@ -34,12 +38,19 @@ class FileStorage:
 
     def reload(self):
         """Deserialize the json file to __objects"""
-        try:
-            with open(self.__file_path, 'r') as f:
-                my_dict = json.load(f)
-            for key, value in my_dict.items():
-                new_object = key.split('.')
-                class_name = new_object[0]
-                self.new(eval("{}".format(class_name))(**value))
-        except FileNotFoundError:
-            pass
+        new_classes = {
+            'BaseModel': BaseModel,
+            'User': User,
+            'State': State,
+            'Amenity': Amenity,
+            'Place': Place,
+            'City': City,
+            'Review': Review
+        }
+        if os.path.exists(self.__file_path):
+            with open(self.__file_path, 'r') as file:
+                new_dict = json.load(file)
+            for key, value in new_dict.items():
+                object = value['__class__']
+                objects = object + '(**value)'
+                self.__objects[key] = eval(objects)
