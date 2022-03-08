@@ -36,8 +36,8 @@ class BaseModel:
 
     def __str__(self):
         """Returns a string representation of the object"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
-                                     self.__dict__)
+        return "[{:s}] ({:s}) {}".format(self.__class__.__name__, self.id,
+                                         self.__dict__)
 
     def save(self):
         """Updates the public instance attribute"""
@@ -48,8 +48,8 @@ class BaseModel:
         """
         Returns a dictionary containing all keys/values of __dict__ instance
         """
-        new_dict = dict(self.__dict__)
+        new_dict = self.__dict__.copy()
+        new_dict["__class__"] = self.__class__.__name__
         new_dict["created_at"] = self.created_at.isoformat(sep='T')
         new_dict["updated_at"] = self.updated_at.isoformat(sep='T')
-        new_dict["__class__"] = self.__class__.__name__
         return new_dict
