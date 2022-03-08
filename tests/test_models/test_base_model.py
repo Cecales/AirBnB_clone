@@ -4,6 +4,7 @@ import unittest
 import pep8
 from datetime import datetime
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 
 
 class test_base(unittest.TestCase):
@@ -49,7 +50,7 @@ class test_base(unittest.TestCase):
         self.assertIsNot(self.instance.created_at, self.instance.updated_at)
         self.assertIsNot(past_update, self.instance.updated_at)
 
-    def test_base_model_to_dict_method(self):
+    def test_to_dict_method(self):
         """BaseModel to_dict method creates accurate dictionary"""
         base = BaseModel()
         base_dict = base.to_dict()
