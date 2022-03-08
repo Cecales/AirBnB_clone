@@ -122,3 +122,17 @@ $
 ```
 All tests should also pass in non-interactive mode: **$ echo "python3 -m unittest discover tests" | bash**
 
+
+###Supported Commands
+Name |	Description |	Use |
+-----|--------------|-------|
+help |	Displays help information for a command |	help [command]
+quit |	Exits/quits the program | quit
+EOF | Exits the program when files are passed into the program | N/A
+create | Creates a new instance of a specified class | create [class_name]
+show | Prints the string representation of an instance | show [class_name] [id]
+destroy | Deletes an instance | destroy [class_name] [id]
+all | Prints the string representation of all instances of a class | all or all [class_name] [id]
+update | Adds or modifies attributes of an instance | update [class_name] [id] [attribute] [value]-
+
+
