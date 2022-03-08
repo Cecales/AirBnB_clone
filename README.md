@@ -123,7 +123,7 @@ $
 All tests should also pass in non-interactive mode: **$ echo "python3 -m unittest discover tests" | bash**
 
 
-###Supported Commands
+## Supported Commands
 Name |	Description |	Use |
 -----|--------------|-------|
 help |	Displays help information for a command |	help [command]
