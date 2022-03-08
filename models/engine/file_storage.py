@@ -3,18 +3,17 @@
 
 import json
 import os.path
-from models.base_model import BaseModel
 from models.user import User
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+from models.base_model import BaseModel
 
 
 class FileStorage:
     """Class Filestorage"""
-
     __file_path = "file.json"
     __objects = {}
 
@@ -30,8 +29,8 @@ class FileStorage:
     def save(self):
         """Serializes __objects to the json file path"""
         new_dict = {}
-        for key, obj in self.__objects.itmes():
-            new_dict[key] = obj.to_dict()
+        for key, value in self.__objects.itmes():
+            new_dict[key] = value.to_dict()
         with open(self.__file_path, 'w',) as f:
             json.dump(new_dict, f)
 
