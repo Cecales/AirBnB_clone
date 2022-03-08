@@ -19,20 +19,19 @@ class BaseModel:
         *args: variables length argument list not used
         **kwargs: (key - value) pair of atrributtes
         """
-        if len(kwargs) > 0:
-            for key, value in kwargs.items():
-                if key != "__class__":
-                    if key == 'created_at' or key == 'updated_at':
+        if kwargs:
+            for name, value in kwargs.items():
+                if name != "__class__":
+                    if name == 'created_at' or name == 'updated_at':
                         value = datetime.datetime.strptime(
                             value, "%Y-%m-%dT%H:%M:%S.%f")
                         setattr(self, key, value)
-                    else:
-                        setattr(self, key, value)
+                    
         else:
-            models.storage.new(self)
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """Returns a string representation of the object"""
