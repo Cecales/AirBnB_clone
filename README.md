@@ -135,4 +135,38 @@ destroy | Deletes an instance | destroy [class_name] [id]
 all | Prints the string representation of all instances of a class | all or all [class_name] [id]
 update | Adds or modifies attributes of an instance | update [class_name] [id] [attribute] [value]-
 
+## Classes you can use
+All Classes |	Description
+------------|-----------------------
+User |	Class User, that inherits from BaseModel and contains specific public attributes
+State |	Class State, that inherits from BaseModel and contains specific public attributes
+City | Class City, that inherits from BaseModel and contains specific public attributes
+Amenity | Class Amenity, that inherits from BaseModel and contains specific public attributes
+Place | Class Place, that inherits from BaseModel and contains specific public attributes
+Review | Class Review, that inherits from BaseModel and contains specific public attributes
+
+## Example
+
+```
+(hbnb) create User
+82ba33d4-cba0-4cf7-8546-b99fd4c9aa47
+```
+```
+(hbnb) show User 82ba33d4-cba0-4cf7-8546-b99fd4c9aa47
+[User] (82ba33d4-cba0-4cf7-8546-b99fd4c9aa47) {'id': '82ba33d4-cba0-4cf7-8546-b99fd4c9aa47', 'created_at': datetime.datetime(2022, 3, 8, 14, 49, 17, 438479), 'updated_at': datetime.datetime(2022, 3, 8, 14, 49, 17, 438580)}
+```
+```
+(hbnb) all
+["[BaseModel] (79488505-c072-4211-b3fd-4c3f04394e2e) {'id': '79488505-c072-4211-b3fd-4c3f04394e2e', 'created_at': datetime.datetime(2022, 3, 7, 21, 43, 8, 32524), 'updated_at': datetime.datetime(2022, 3, 7, 21, 43, 8, 32577), 'name': 'My First Model', 'my_number': 89}", "[BaseModel] (62fe56fa-ff13-4a5c-b88f-3a61287a5089) {'id': '62fe56fa-ff13-4a5c-b88f-3a612|87a5089', 'created_at': datetime.datetime(2022, 3, 7, 23, 36, 27, 657448), 'updated_at': datetime.datetime(2022, 3, 7, 23, 36, 27, 657455), 'name': 'My_First_Model', 'my_number': 89}", "[BaseModel] (ea9a34ec-11cb-446a-b231-1df733e96d09) {'id': 'ea9a34ec-11cb-446a-b231-1df733e96d09', 'created_at': datetime.datetime(2022, 3, 7, 23, 38, 32, 503128), 'updated_at': datetime.datetime(2022, 3, 7, 23, 38, 32, 503136), 'name': 'My_First_Model', 'my_number': 89}", "[BaseModel] (54e4b9ac-d571-42b5-a6b1-44b1250873a4) {'id': '54e4b9ac-d571-42b5-a6b1-44b1250873a4', 'created_at': datetime.datetime(2022, 3, 7, 23, 40, 42, 202115), 'updated_at': datetime.datetime(2022, 3, 7, 23, 40, 42, 202129), 'name': 'My_First_Model', 'my_number': 89}", "[User] (6b9761a1-716c-452b-97ab-ae763c1372c8) {'id': '6b9761a1-716c-452b-97ab-ae763c1372c8', 'created_at': datetime.datetime(2022, 3, 8, 1, 44, 38, 491739), 'updated_at': datetime.datetime(2022, 3, 8, 1, 44, 38, 491749), 'first_name': 'Betty', 'last_name': 'Bar', 'email': 'airbnb@mail.com', 'password': 'root'}", "[User] (799ae5b9-c013-45d6-8bcc-98cc094db62a) {'id': '799ae5b9-c013-45d6-8bcc-98cc094db62a', 'created_at': datetime.datetime(2022, 3, 8, 1, 44, 38, 492141), 'updated_at': datetime.datetime(2022, 3, 8, 1, 44, 38, 492151), 'first_name': 'John', 'email': 'airbnb2@mail.com', 'password': 'root'}", "[BaseModel] (a6cecdc9-7cf1-4859-942f-4b4584cf956d) {'id': 'a6cecdc9-7cf1-4859-942f-4b4584cf956d', 'created_at': datetime.datetime(2022, 3, 8, 2, 2, 35, 779123), 'updated_at': datetime.datetime(2022, 3, 8, 2, 2, 35, 779215)}", "[BaseModel] (975619e3-cc24-4456-95e0-f1088a376215) {'id': '975619e3-cc24-4456-95e0-f1088a376215', 'created_at': datetime.datetime(2022, 3, 8, 2, 3, 32, 594913), 'updated_at': datetime.datetime(2022, 3, 8, 2, 3, 32, 595005)}", "[User] (98fd4406-e981-47d0-af5e-c8e1188f57a3) {'id': '98fd4406-e981-47d0-af5e-c8e1188f57a3', 'created_at': datetime.datetime(2022, 3, 8, 14, 48, 9, 394305), 'updated_at': datetime.datetime(2022, 3, 8, 14, 48, 9, 394385)}", "[User] (82ba33d4-cba0-4cf7-8546-b99fd4c9aa47) {'id': '82ba33d4-cba0-4cf7-8546-b99fd4c9aa47', 'created_at': datetime.datetime(2022, 3, 8, 14, 49, 17, 438479), 'updated_at': datetime.datetime(2022, 3, 8, 14, 49, 17, 438580)}"]
+```
+```
+(hbnb) update BaseModel 79488505-c072-4211-b3fd-4c3f04394e2e name 'Betty'
+(hbnb) show BaseModel 79488505-c072-4211-b3fd-4c3f04394e2e
+[BaseModel] (79488505-c072-4211-b3fd-4c3f04394e2e) {'id': '79488505-c072-4211-b3fd-4c3f04394e2e', 'created_at': datetime.datetime(2022, 3, 7, 21, 43, 8, 32524), 'updated_at': datetime.datetime(2022, 3, 7, 21, 43, 8, 32577), 'name': 'Betty', 'my_number': 89
+```
+```
+(hbnb) destroy BaseModel 79488505-c072-4211-b3fd-4c3f04394e2e
+(hbnb) show BaseModel 79488505-c072-4211-b3fd-4c3f04394e2e
+** no instance found **
+```
 
