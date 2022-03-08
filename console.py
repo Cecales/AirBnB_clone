@@ -19,11 +19,12 @@ new_classes = {'BaseModel': BaseModel, 'User': User, 'State': State,
                'Amenity': Amenity, 'Place': Place, 'City': City,
                'Review': Review}
 
+
 class HBNBCommand(cmd.Cmd):
     """aclass that contains the entry point of the command interpreter.
     """
     prompt = '(hbnb) '
-   
+
     def do_quit(self, line):
         """ Quit command to exit the program.
         """
