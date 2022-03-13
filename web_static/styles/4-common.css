@@ -1,0 +1,25 @@
+html {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	color: #484848;
+	font-size: 14px;
+	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	flex-direction: column;
+	display: flex;
+	justify-content: space-between;
+	min-height: 100vh;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 30px auto 30px auto;
+	flex-direction: column;
+	flex-grow: 1;
+	width: 100%;
+	display: flex;
+}
